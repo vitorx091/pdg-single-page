@@ -1,38 +1,68 @@
-import NavLinks from "./NavLinks"
-import SocialLinks from "./SocialLinks"
+import {
+  FaInstagram,
+  FaTiktok
+} from "react-icons/fa"
 
 function MobileMenu({ isOpen }) {
 
   return (
+
     <div
       className={`
-      fixed
-      top-0
-      left-0
-      w-full
-      h-screen
-      bg-black/95
-      backdrop-blur-2xl
-      z-40
-      flex
-      flex-col
-      items-center
-      justify-center
-      gap-10
-      transition-all
-      duration-500
-
-      ${isOpen ? "translate-x-0" : "translate-x-full"}
+      mobile-menu
+      ${isOpen ? "active" : ""}
       `}
     >
 
-      <div className="text-3xl">
-        <NavLinks />
+      {/* LOGO */}
+      <h2 className="mobile-logo">
+        PDG
+      </h2>
+
+      {/* LINKS */}
+      <nav className="mobile-links">
+
+        <a href="#">
+          Home
+        </a>
+
+        <a href="#">
+          Eventos
+        </a>
+
+        <a href="#">
+          Experiência
+        </a>
+
+        <a href="#">
+          Instagram
+        </a>
+
+      </nav>
+
+      {/* BUTTON */}
+      <button className="mobile-button">
+        Garantir Ingresso
+      </button>
+
+      {/* SOCIALS */}
+      <div className="mobile-socials">
+
+        <a
+          href="https://instagram.com/pagodedogil"
+          target="_blank"
+        >
+          <FaInstagram />
+        </a>
+
+        <a href="#">
+          <FaTiktok />
+        </a>
+
       </div>
 
-      <SocialLinks />
-
     </div>
+
   )
 }
 

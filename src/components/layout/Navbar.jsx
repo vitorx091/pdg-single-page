@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react"
 
+import { HiOutlineMenuAlt3, HiX } from "react-icons/hi"
+
 import Container from "./Container"
+
 import NavLinks from "./Navbar/NavLinks"
 import SocialLinks from "./Navbar/SocialLinks"
+import MobileMenu from "./Navbar/MobileMenu"
 
 function Navbar() {
 
   const [scrolled, setScrolled] = useState(false)
 
+  const [menuOpen, setMenuOpen] = useState(false)
+
   useEffect(() => {
 
-    function handleScroll(){
+    function handleScroll() {
       setScrolled(window.scrollY > 50)
     }
 
@@ -23,16 +29,19 @@ function Navbar() {
   }, [])
 
   return (
+
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
 
       <Container>
 
         <div className="navbar-container">
 
+          {/* LOGO */}
           <h1 className="navbar-logo">
             PDG
           </h1>
 
+          {/* DESKTOP */}
           <div className="hidden lg:flex items-center gap-14">
 
             <NavLinks />
@@ -49,9 +58,26 @@ function Navbar() {
 
           </div>
 
+          {/* MOBILE BUTTON */}
+          <button
+            className="menu-button"
+            onClick={() =>
+              setMenuOpen(!menuOpen)
+            }
+          >
+
+            {menuOpen
+              ? <HiX />
+              : <HiOutlineMenuAlt3 />
+            }
+
+          </button>
+
         </div>
 
       </Container>
+
+      <MobileMenu isOpen={menuOpen} />
 
     </header>
   )
