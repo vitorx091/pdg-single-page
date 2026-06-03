@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-import Sidebar from "../../components/admin/Sidebar"
-import DashboardCard from "../../components/admin/DashboardCard"
-import EventsTable from "../../components/admin/EventsTable"
-import CreateEventModal from "../../components/admin/CreateEventModal"
-import DeleteModal from "../../components/admin/DeleteModal"
+import Sidebar from "../../components/Admin/Sidebar"
+import DashboardCard from "../../components/Admin/DashboardCard"
+import EventsTable from "../../components/Admin/EventsTable"
+import CreateEventModal from "../../components/Admin/CreateEventModal"
+import DeleteModal from "../../components/Admin/DeleteModal"
 
 function Dashboard() {
 
