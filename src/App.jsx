@@ -5,7 +5,7 @@ import {
 
 import Home from "./pages/Home/home"
 
-import Dashboard from "./pages/admin/Dashboard"
+import Dashboard from "./pages/Admin/Dashboard"
 
 function App() {
 
