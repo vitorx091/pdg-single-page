@@ -8,7 +8,7 @@ function EventCard({ event }) {
       <div className="event-image">
 
         <img
-          src={event.image}
+          src={event.banner}
           alt={event.title}
         />
 

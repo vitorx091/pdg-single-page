@@ -1,3 +1,7 @@
+import { useEffect, useState } from "react"
+
+import axios from "axios"
+
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import { Autoplay, EffectFade } from "swiper/modules"
@@ -5,11 +9,35 @@ import { Autoplay, EffectFade } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/effect-fade"
 
-import { events } from "../data/events"
-
 import EventCard from "../components/ui/EventCard"
 
 function EventsSection() {
+
+  const [events, setEvents] = useState([])
+
+  useEffect(() => {
+
+    async function fetchEvents() {
+
+      try {
+
+        const response = await axios.get(
+          "http://localhost:5000/api/events"
+        )
+
+        setEvents(response.data)
+
+      } catch (error) {
+
+        console.log(error)
+
+      }
+
+    }
+
+    fetchEvents()
+
+  }, [])
 
   return (
 
@@ -22,12 +50,12 @@ function EventsSection() {
         effect="fade"
 
         fadeEffect={{
-            crossFade:true,
+          crossFade: true,
         }}
 
         autoplay={{
-          delay:7000,
-          disableOnInteraction:false,
+          delay: 7000,
+          disableOnInteraction: false,
         }}
 
         speed={1200}
@@ -38,7 +66,7 @@ function EventsSection() {
 
         {events.map((event) => (
 
-          <SwiperSlide key={event.id}>
+          <SwiperSlide key={event._id}>
 
             <EventCard event={event} />
 
